@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Recipe</title>
+</head>
+<body>
+    <a href="/dashboard">Back to Recipes</a>
+    <a href="/logout">Logout</a>
+    <h1>Welcome, {{session['uder_first_name']}}</h1>
+    <div>
+        {% if recipe %}
+        <div>
+            <h1>{{recipe.name}}</h1>
+            <p>Posted By: {{recipe.first_name}} {{recipe.last_name}}</p>
+        </div>
+        <div>
+            <p>Description:</p>
+            <p>{{recipe.description}}</p>
+        </div>
+        <div>
+            <p>Under 30 Minutes?</p>
+            {% if recipe.under_30 == 1 %} 
+            <p>Yes</p>
+            {% elif recipe.under_30 == 0 %}
+            <p>No</p>
+            {% endif %}
+        </div>
+        <div>
+            <p>Instructions:</p>
+            <p>{{recipe.instructions}}</p>
+        </div>
+        <div>
+            <p>Date Made:</p>
+            <p>{{recipe.date_cooked_made}}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+</head>
+<body>
+    <a href="/dashboard">Back to Recipes</a>
+    <a href="/logout">Logout</a>
+    <h1>Add a New Recipe</h1>
+    <div>
+        <div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+        <form action="/recipe/create/post", method="POST">
+            <div>
+                <label class="form-label">Recipe Name</label>
+                <input class="form-control" type="text" placeholder="Recipe Name" name="name">
+            </div>
+            <div>
+                <label class="form-label">Description</label>
+                <textarea class="form-control" rows="3" name="description"></textarea>
+            </div>
+            <div>
+                <label class="form-label">Instructions</label>
+                <textarea class="form-control" rows="3" name="instructions"></textarea>
+            </div>
+        </div>
+        <div>
+
+            <div>
+                <label>Date Created/Made:</label>
+                <input type="date" name="date_cooked_made">
+            </div>
+            <p>Under 30 minutes?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="under_30" value='true' >
+                <label class="form-check-label">Yes</label>
+                <input class="form-check-input" type="radio" name="under_30" value='false' >
+                <label class="form-check-label">No</label>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+</body>
+</html>
