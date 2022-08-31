@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Main</title>
+    <style>
+        .main{
+            display: flex;
+        }
+        h1{
+            font-size: 40px;;
+        }
+        .sub{
+            width: 50%;
+            box-sizing: border-box;
+            padding: 0px 50px;
+            font-size: 20px;
+        }
+        .bookName{
+            width: 40%;
+            position: absolute;
+            right: 10px;
+        }
+        .create{
+            position: relative;
+            top: 20px;
+            left: 70px;
+            font-size: 20px;
+        }
+        .bookDisplay{
+            border: 2px solid black;
+            height: 200px;
+            font-size: 20px;
+            overflow:scroll;
+        }
+        .add{
+            position: relative;
+            top: 20px;
+            left: 20px;
+            font-size: 25px;;
+        }
+        .book{
+            text-decoration: none;
+            color: black;
+        }
+        .form{
+
+            width: 100%;
+            position: relative;
+        }
+        .link{
+            position: relative;
+            left: 100px;
+            top:200px
+        }
+    </style>
+  </head>
+</head>
+<body>
+    <div class="main">
+        <div class="sub">
+            <h1>New book</h1>
+            <form class="form" action="/books/new_book" method = 'POST'>
+                <div >
+                <label>Name:</label>
+                <input class="bookName" name='title' type="text"><br>
+                </div>
+                <div >
+                <label>Number of Pages: </label>
+                <input class="bookName" name='num_pages' type="text"><br>
+                </div>
+                <input class="create" type="submit" value="Create">
+            </form>
+        </div>
+        <div class="sub">
+            <h1>All Books</h1>
+            <div class="bookDisplay">
+                <ul style="list-style:none; line-height: 150%;">
+                    {% for book in all_books %}
+                    <li>
+                        <a class="book" href="/books/{{book.id}}/{{book.title}}">{{book.title}}</a>
+                    </li>    
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a class="link" href="/">HOME</a>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Main</title>
+    <style>
+        .main{
+            display: flex;
+        }
+        h1{
+            font-size: 40px;;
+        }
+        .sub{
+            width: 50%;
+            box-sizing: border-box;
+            padding: 0px 50px;
+            font-size: 20px;
+        }
+        .authorName{
+            margin-left: 20px;
+        }
+        .create{
+            position: relative;
+            top: 20px;
+            left: 70px;
+            font-size: 20px;
+        }
+        .authorDisplay{
+            border: 2px solid black;
+            height: 200px;
+            font-size: 20px;
+            overflow:scroll;
+        }
+        .add{
+            position: relative;
+            top: 20px;
+            left: 20px;
+            font-size: 25px;;
+        }
+        .author{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+  </head>
+</head>
+<body>
+    <div class="main">
+        <div class="sub">
+            <h1>New Author</h1>
+            <form action="/author/create" method = 'POST'>
+                <label>Name: </label>
+                <input class="authorName" name='name' type="text"><br>
+                <input class="create" type="submit" value="Create">
+            </form>
+        </div>
+        <div class="sub">
+            <h1>All Authors</h1>
+            <div class="authorDisplay">
+                <ul style="list-style:none; line-height: 150%;">
+                    {% for one_author in all_authors %}
+                    <li>
+                        <a class="author" href="/author/{{one_author.id}}/{{one_author.name}}
+                        ">{{one_author.name}}</a>
+                    </li>    
+                    {% endfor %}
+                </ul>
+            </div>
+            <a class="add" href="/books">Add Book</a>
+        </div>
+    </div>
+</body>
+</html>
