@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <p>Visits: {{session['visit']}}</p>
+    <p>Counter: {{session['counter']}}</p>
+    <div>
+        <form action='/add_to_counter'>
+            <button  style="margin-right: 60px; background-color: lightskyblue;">Add 2</button>
+        </form>
+        <form action='/destroy_session'>
+            <button style="background-color: lightcoral;">Reset</button>
+        </form>
+    </div>
+    <form action="/customAdd" method='post' style="display: flex; justify-content: center; margin-top: 20px">
+        <input type="text" name="customNum" placeholder="Custom Number">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
