@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    <style>
+        .earnBar{
+            display: flex;
+            padding: 10px 10px;
+        }
+        .earnings{
+            border: 2px solid black;
+            width: 40%;
+            height: 50px;
+            
+        }
+        .cashOut{
+            border: 2px solid black;
+            width: 15%;
+            height: 40px;
+            align-self: center;
+            position:absolute;
+            right: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            color: black;
+            background-color: lightgray;
+            line-height: 40px;
+        }
+        .gambleFloor{
+            display: flex;
+            column-gap: 5%;
+        }
+        .box{
+            width: 20%;
+            height: 200px;
+            border: 2px solid black;
+            padding: 0px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .boxName{
+            margin: 10px 0px 0px;
+            font-size: 25px;
+            position: relative;
+            bottom: 30px;
+        }
+        .submit{
+            width: 70%;
+            height: 30px;
+            position: relative;
+            top: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 3px 3px black;
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            color: black;
+            background-color: lightgray;
+        }
+        .log{
+            width: 100%;
+            height: 160px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction:column-reverse;
+            overflow: scroll;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="earnBar">
+            <p style="font-size:  20px; margin-right: 20px">Your Gold:</p>
+            <div style="vertical-align:middle" class="earnings"><p>{{session['gold']}}</p></div>
+            <a class="cashOut" href="/cash_out">Cash Out</a>
+        </div>
+        <div class="gambleFloor">
+            <div class="box">
+                <p class="boxName">Farm</p>
+                <p class="risk">(earns 10-20 gold)</p>
+                <a class="submit" href="/process_money/farm">Find Gold!</a>
+            </div>
+            <div class="box">
+                <p class="boxName">Cave</p>
+                <p class="risk">(earns 5-20 gold)</p>
+                <a class="submit" href="/process_money/cave">Find Gold!</a>
+            </div>
+            <div class="box">
+                <p class="boxName">House</p>
+                <p class="risk">(earns 2-5 gold)</p>
+                <a class="submit" href="/process_money/house">Find Gold!</a>
+            </div>
+            <div class="box">
+                <p class="boxName">Casino</p>
+                <p class="risk">(earns/takes 0-50 gold)</p>
+                <a class="submit" href="/process_money/casino">Find Gold!</a>
+            </div>
+        </div>
+        <div>
+            <p>Activities:</p>
+            <ul class="log">
+            {% for activity in session['activities'] %}
+                <li>{{activity}}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
