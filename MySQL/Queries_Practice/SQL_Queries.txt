@@ -1,0 +1,14 @@
+SELECT * FROM names; 
+
+NSERT INTO names (name, created_at, updated_at) VALUES ('Jesse', NOW(), NOW());
+
+INSERT INTO names (name, created_at, updated_at) VALUES ('James', NOW(), NOW()), ('John', NOW(), NOW()), ('Jane', NOW(), NOW());
+
+DELETE FROM names
+WHERE id= 2;
+
+UPDATE names 
+SET name = 'Jamie'
+WHERE id = 3;
+
+
