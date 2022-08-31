@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+        h1{
+            margin-left: 40px;
+        }
+        .head{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        ul{
+            list-style: none;
+        }
+        
+        li{
+            margin:10px 0px;
+        }
+        .sumbit{
+            margin: 0px 80px 0px 40px;
+            width: 100px;
+        }
+        input{
+            width: 200px
+        }
+        label{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1>Edit User {{user_info.id}}</h1>
+        <a class="home" href="/">HOME</a>
+    </div>
+    <form action="/user/{{user_info.id}}/update" method='POST'>
+        <ul>
+            <li>
+                <label for="fname">First Name:</label><br>
+                <input type="text" name="fname" value="{{user_info.first_name}}"></li>
+            <li>
+                <label for="lname">Last Name:</label><br>
+                <input type="text" name="lname" value="{{user_info.last_name}}">
+            </li>
+            <li>
+                <label for="email">Email:</label><br>
+                <input type="text" name="email" value="{{user_info.email}}">
+            </li>
+        </ul>
+        <input class="sumbit" type="submit" value="Update">
+        <a href="/user/{{user_info.id}}">Show User Page</a>
+    </form>
+</body>
+</html>
