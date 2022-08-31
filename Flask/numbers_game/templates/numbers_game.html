@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: center
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .answer{
+            width:150px;
+            height: 150px;
+            font-size: larger;
+            font-weight: bold;
+            margin: auto;
+            justify-content: center;
+        }
+        .attempts{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Great Numbers Game!</h1>
+    <p>I am thinking of a number between 1 and 100<br>Take a Guess!</p>
+    {% if x != 0 %}
+        {% if session['attempts'] >= 5 %}
+        <div style="background-color:red; color: white" class="answer">
+            <p>You Lose!!<br>Try Again!</p>
+            <form action="/reset">
+                <button>Reset</button>
+            </form>
+        </div>
+        {% else %}
+            {% if session['guess'] < session['answer'] %}
+                <div style="background-color:red; color: white" class="answer"> Too Low! </div>
+            {% elif session['guess'] == session['answer'] %}
+                <div style="background-color:green; color: white" class="answer">
+                    <p>{{session['answer']}} was the number!!</p>
+                    <form action="/reset">
+                        <button>Reset</button>
+                    </form>
+                </div>
+            {% elif session['guess'] > session['answer'] %}
+                <div style="background-color:red; color: white" class="answer"> Too High!</div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    {% if session['attempts'] > 0 %}
+    <div class="attempts">
+        <p>Attempts Used: {{session['attempts']}}</p>
+        <p>Attempts Remaining: {{session['remaining']}}</p>
+    </div>
+    {% endif %}
+    <form action="/guessing" method="post">
+        <div class="input">
+            <input style="width: 15%; margin-bottom: 5px;" name="guess" type="text">
+            {% if session['attempts'] < 5 %}
+            <button style="width:10%" type="submit">Submit</button>
+            {% endif %}
+        </div>
+    </form>
+    
+</body>
+</html>
