@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja</title>
+    <style>
+        h1{
+            margin: 30px 40px;
+        }
+        .inputBlock{
+            width:60%;
+            margin-left: 40px;
+        }
+        .line{
+            width: 300px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .input{
+            width: 50%;
+        }
+        .create{
+            width: 90px;
+            height: 30px;
+            position: relative;
+            top:20px;
+            left: 140px
+        }
+        a{
+            position:relative;
+            top: 100px;
+            left: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>New Ninja</h1>
+    <form action="/new_ninja/create" method="POST">
+        <div class="inputBlock">
+            <div class="line">
+                <label>Dojo: </label>
+                <select name="dojo_id" class="input">
+                    <option>Select</option>
+                    {% for dojo in all_dojos %}
+                    <option value="{{dojo.id}}">{{dojo.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="line">
+                <label>First Name:</label>
+                <input name="first_name" class="input" type="text">
+            </div>
+            <div class="line">
+                <label>Last Name: </label>
+                <input name="last_name" class="input" type="text">
+            </div>
+            <div class="line">
+                <label>Age: </label>
+                <input name="age" class="input" type="text">
+            </div>
+                <input  class="create" type="submit" value="Create">
+        </div>
+    </form>
+    <a href="/">HOME</a>
+</body>
+</html>

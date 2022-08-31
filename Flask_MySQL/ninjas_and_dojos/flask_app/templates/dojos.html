@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Main</title>
+    <style>
+        .main{
+            display: flex;
+        }
+        h1{
+            font-size: 40px;;
+        }
+        .sub{
+            width: 50%;
+            box-sizing: border-box;
+            padding: 0px 50px;
+            font-size: 20px;
+        }
+        .dojoName{
+            margin-left: 20px;
+        }
+        .create{
+            position: relative;
+            top: 20px;
+            left: 70px;
+            font-size: 20px;
+        }
+        .dojoDisplay{
+            border: 2px solid black;
+            height: 200px;
+            font-size: 20px;
+            overflow:scroll;
+        }
+        .add{
+            position: relative;
+            top: 20px;
+            left: 20px;
+            font-size: 25px;;
+        }
+        .dojo{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+  </head>
+</head>
+<body>
+    <div class="main">
+        <div class="sub">
+            <h1>New Dojo</h1>
+            <form action="/dojo/create_dojo" method = 'POST'>
+                <label>Name: </label>
+                <input class="dojoName" name='name' type="text"><br>
+                <input class="create" type="submit" value="Create">
+            </form>
+        </div>
+        <div class="sub">
+            <h1>All Dojos</h1>
+            <div class="dojoDisplay">
+                <ul style="list-style:none; line-height: 150%;">
+                    {% for one_dojo in all_dojos %}
+                    <li>
+                        <a class="dojo" href="/dojo/{{one_dojo.id}}/{{one_dojo.name}}">{{one_dojo.name}}</a>
+                    </li>    
+                    {% endfor %}
+                </ul>
+            </div>
+            <a class="add" href="/new_ninja">Add Ninja</a>
+        </div>
+    </div>
+</body>
+</html>
