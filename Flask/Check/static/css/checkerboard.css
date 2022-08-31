@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    text-decoration: underline;
+            }
+        #grid-container-one{
+            display: flex;
+            box-sizing: border-box;
+            margin: 0px 25%;
+            width: 50%
+        }
+        .p{
+            display:none;
+        }
+        .row, .row2{
+            height:60px;
+            width:60px;
+        }

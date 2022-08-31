@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/checkerboard.css') }}">
+</head>
+<body>
+    <p class="p">{{color2}}</p>
+    <p class="p">{{color1}}</p>
+    <p class="p">{{row}}</p>
+    <p class="p">{{column}}</p>
+    {% if color2 == 'black' %}
+
+        {% if color1 == 'red' %}
+    <h1 style="color:red">***Checkerboard***</h1>
+
+        <div id="grid-container-one">
+            {% for columnx in range(0,x) %}
+            <div class="column">
+                {% for rowy in range(0, y) %}
+                    {% if columnx%2==0 %}
+                        {% if rowy%2==0 %}
+                        <div class="row" style='background-color: red'></div>
+                        {% else %}
+                        <div class="row2" style='background-color: black'></div>
+                        {% endif %}
+                    {% else %}
+                        {% if rowy%2==0 %}
+                        <div class="row2" style='background-color: black'></div>
+                        {% else %}
+                        <div class="row" style='background-color: red'></div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+        {% elif color1 == 'blue' %}
+    <h1 style="color:blue">***Checkerboard***</h1>
+
+        <div id="grid-container-one">
+            {% for columnx in range(0,x) %}
+            <div class="column">
+                {% for rowy in range(0, y) %}
+                    {% if columnx%2==0 %}
+                        {% if rowy%2==0 %}
+                        <div class="row" style='background-color: blue'></div>
+                        {% else %}
+                        <div class="row2" style='background-color: black'></div>
+                        {% endif %}
+                    {% else %}
+                        {% if rowy%2==0 %}
+                        <div class="row2" style='background-color: black'></div>
+                        {% else %}
+                        <div class="row" style='background-color: blue'></div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+        {% elif color1 == 'green' %}
+    <h1 style="color:green">***Checkerboard***</h1>
+
+        <div id="grid-container-one">
+            {% for columnx in range(0,x) %}
+            <div class="column">
+                {% for rowy in range(0, y) %}
+                    {% if columnx%2==0 %}
+                        {% if rowy%2==0 %}
+                        <div class="row" style='background-color: green'></div>
+                        {% else %}
+                        <div class="row2" style='background-color: black'></div>
+                        {% endif %}
+                    {% else %}
+                        {% if rowy%2==0 %}
+                        <div class="row2" style='background-color: black '></div>
+                        {% else %}
+                        <div class="row" style='background-color: green'></div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+
+    {% elif color2 == 'gray' %}
+
+        {% if color1 == 'red' %}
+    <h1 style="color:red">***Checkerboard***</h1>
+
+        <div id="grid-container-one">
+            {% for columnx in range(0,x) %}
+            <div class="column">
+                {% for rowy in range(0, y) %}
+                    {% if columnx%2==0 %}
+                        {% if rowy%2==0 %}
+                        <div class="row" style='background-color: red'></div>
+                        {% else %}
+                        <div class="row2" style='background-color: gray'></div>
+                        {% endif %}
+                    {% else %}
+                        {% if rowy%2==0 %}
+                        <div class="row2" style='background-color: gray'></div>
+                        {% else %}
+                        <div class="row" style='background-color: red'></div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+        {% elif color1 == 'blue' %}
+    <h1 style="color:blue">***Checkerboard***</h1>
+
+        <div id="grid-container-one">
+            {% for columnx in range(0,x) %}
+            <div class="column">
+                {% for rowy in range(0, y) %}
+                    {% if columnx%2 == 0 %}
+                        {% if rowy%2 != 0 %}
+                        <div class="row" style='background-color: blue'></div>
+                        {% else %}
+                        <div class="row2" style='background-color: gray'></div>
+                        {% endif %}
+                    {% else %}
+                        {% if rowy%2!=0 %}
+                        <div class="row2" style='background-color: gray'></div>
+                        {% else %}
+                        <div class="row" style='background-color: blue'></div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        
+
+        {% elif color1 == 'green' %}
+    <h1 style="color:green">***Checkerboard***</h1>
+
+        <div id="grid-container-one">
+            {% for columnx in range(0,x) %}
+            <div class="column">
+                {% for rowy in range(0, y) %}
+                    {% if x%2==0 %}
+                        {% if rowy%2==0 %}
+                        <div class="row" style='background-color: green'></div>
+                        {% else %}
+                        <div class="row2" style='background-color: gray'></div>
+                        {% endif %}
+                    {%  else %}
+                        {% if rowy%2==0 %}
+                        <div class="row2" style='background-color: gray'></div>
+                        {% else %}
+                        <div class="row" style='background-color: green'></div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    {% endif %}
+    <!-- <script src="Check/static/js/checkerboard.js"></script> -->
+</body>
+</html>
