@@ -25,13 +25,31 @@ class Ninja:
         this.pet.noise()
         print('Sorry but you have to get clean')
 
+# Created sub-class of pets via inheritance
+class ninjaPet(Pet.Pet):
+    def __init__(self, name, type, tricks, health, energy):
+        super().__init__(name, type, tricks, health, energy)
+        super().sleep()
+        super().play()
+        super().eat()
+        super().noise()
+
 # Created a pet instance from import
 pet1 = Pet.Pet('Ryder', 'Belgian Sheep Dog', ['slober', 'eat', 'sleep'], 80, 60)
 
-# Created Ninja instance using our newly created pet
+# Created pet instance from inherited sub-class
+pet2 = ninjaPet('Tank', 'Pitbull', ['slober', 'eat', 'sleep'], 100, 100)
+
+
+# Created Ninja instances using our newly created pets
 ninja1 = Ninja('Jane', 'Doe', pet1, 'Purina', 'Bacon Bits')
+ninja2 = Ninja('Steve', 'Hill', pet2, 'Raw Meat', 'Bacon Bits')
 
 # Invoking ninja methods then invoke the imported pet class methods
 ninja1.walk()
 ninja1.feed()
 ninja1.bathe()
+
+ninja2.walk()
+ninja2.feed()
+ninja2.bathe()
