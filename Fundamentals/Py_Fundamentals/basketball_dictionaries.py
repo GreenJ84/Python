@@ -1,3 +1,8 @@
+# Create a class for a Basketball player with a constructor for name, age, position, and team attributes
+# Update a class constructor to take in a player dictionary
+# Create Player instances
+# Write a class method that poplates a team(list) of Player instances from a list of player dictionaries.
+
 # List of player dictionaries
 players = [
     {
