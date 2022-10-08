@@ -1,4 +1,4 @@
-
+# Pet class created to be used as module
 class Pet:
     def __init__(self, name, type, tricks, health, energy):
         self.name = name
