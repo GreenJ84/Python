@@ -35,7 +35,7 @@ body{
     border: 2px solid black;
     width: 40%;
     height: 50px;
-    font-size: 1.5vw;
+    font-size: 2.2vw;
 }
 
 .cashOut{
@@ -109,4 +109,5 @@ body{
     display: flex;
     flex-direction:column-reverse;
     overflow: scroll;
+    font-size: 1.8vw;
 }
