@@ -7,23 +7,60 @@
     <title>All Users</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
+        body{ 
+            background-color: rgb(217, 217, 217);}
         h1{
-            margin: 15px 0px 15px 30%;
-
+            margin: 8vw 0 4vw;
+            text-align: center;
+            font-size: 6vw;
+            color: rgb(0, 78, 57);
         }
         table{
+            position: relative;
             width: 80% !important;
-            margin: 0px 20px;
+            margin: 0 auto;
         }
-        .create{
-            margin-left: 50px;
+        td{ text-align: center; }
+        th{
+            text-align: center;
+            padding: 15px 0 !important;
+            font-size: 2.4vw;
+            color: rgb(163, 254, 183) !important;
+        }
+        td{ font-size: 1.6vw; }
+        .buttonHold{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 10px;
+        }
+        .button, .button2{
+            border: 2px solid black;
+            padding: 5px;
+            color: black;
+            text-decoration: none;
+            margin: .5vw 0;
+        }
+        .button:hover, .button2:hover{
+            background-color: rgb(0, 122, 208);
+            color: rgb(250, 249, 249);
+            box-shadow: none;
+        }
+        .button{
+            background-color: rgb(0, 250, 175);
+            box-shadow: 1px 1px 1px white;
+        }
+        .button2{
+            background-color: rgb(4, 168, 213);
+            box-shadow: 2px 2px 2px rgb(0, 0, 0);
+            margin-left: 83vw;
         }
     </style>
 </head>
 <body>
     <h1>All Users</h1>
 
-    <table class="table table-dark table-striped">
+    <table class="tb table table-dark table-striped">
         <tr>
             <th>ID</th>
             <th>Full Name</th>
@@ -37,18 +74,17 @@
             <td>{{one_user.first_name}} {{one_user.last_name}}</td>
             <td>{{one_user.email}}</td>
             <td>{{one_user.created_at}}</td>
-            <td>
-                <div>
-                    <a style="border-left: 1px black" href="/user/{{one_user.id}}">Show</a> |
-                    <a style="border-left: 1px black" href="/user/{{one_user.id}}/edit">Edit</a> |
-                    <a href="/user/{{one_user.id}}/delete">Delete</a>
+            <td >
+                <div class="buttonHold">
+                    <a class="button" style="border-left: 1px black" href="/user/{{one_user.id}}">Show</a>
+                    <a class="button" style="border-left: 1px black" href="/user/{{one_user.id}}/edit">Edit</a>
+                    <a class="button" href="/user/{{one_user.id}}/delete">Delete</a>
                 </div>
             </td>
         </tr>
         {% endfor %}
     </table>
-
-    <a class="create" href="/create">Add a New User</a>
+    <a class="create button2" href="/create">Add a New User</a>
 
 </body>
 </html>
