@@ -1,13 +1,18 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 
+
+def changeDate(date):
+    return str(date.month)+"-"+str(date.day)+"-"+str(date.year)
 class User:
     def __init__(self, data):
+        x = changeDate(data['created_at'])
+        y = changeDate(data ['updated_at'])
         self.id = data['id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.email = data['email']
-        self.created_at = data['created_at']
-        self.updated_at = data ['updated_at']
+        self.created_at = x
+        self.updated_at = y
 
     @classmethod
     def get_all(cls):
